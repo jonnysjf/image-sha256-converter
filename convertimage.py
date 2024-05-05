@@ -13,12 +13,14 @@ def chash():
     for i, file in enumerate(list_file):
         print(f'[{i}]\t{file.name}')
 
-    img = input('Selecione a imagem: \n')
+    img = int(input('Selecione a imagem: \n'))
     
-    print(f'Imagem selecionada: {list_file[i].name}\n')
-    op = int(input('Deseja continuar:\n[1] SIM\n[2] NAO\n'))
+    print(f'Imagem selecionada: {list_file[img].name}\n')
 
-    str_image = base64.b64encode(img) if op == "Y" else print('Programa Finalizado...')
+    op = int(input('Deseja continuar:\n[1] SIM\n[2] NAO\n'))
+    img_name_completo = list_file[img].name
+    print(img_name_completo)
+    str_image = base64.b64encode(img_name_completo) if op == 1 else print('Programa Finalizado...')
 
     opt = int(input('Imagem convertida, deseja salvar Hash em arquivo:\n[1] SIM\n[2] NAO\n'))
     img_name = str(list_file[i].name)
